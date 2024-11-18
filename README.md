@@ -1,6 +1,6 @@
-# To-Do App
+# 🚀🚀To-Do App
 
-A simple and secure to-do app built with **React** (Vite) on the frontend and **Express.js** on the backend, using **JWT** for authentication.
+A simple and secure full-stack to-do app built with **React** (Vite) on the frontend and **Express.js** on the backend, using **JWT** for authentication.
 
 ## Features
 
