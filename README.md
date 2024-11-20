@@ -43,3 +43,9 @@ A simple and secure full-stack to-do app built with **React** (Vite) on the fron
 
 https://github.com/user-attachments/assets/492bacfe-1492-4f20-b415-9152208e0d65
 
+
+
+
+https://github.com/user-attachments/assets/ebd289c9-4e8c-4e37-9e91-fe318a901829
+
+
