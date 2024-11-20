@@ -33,7 +33,7 @@ const Signin = () => {
 
   return (
     <div>
-      <div className="m-auto mt-[25vh] flex max-w-[400px] items-center justify-center rounded-md bg-white py-8">
+      <div className="m-auto mt-[25vh] flex max-w-[400px] items-center justify-center rounded-md bg-black p-8 dark:bg-white">
         {loading ? (
           <p className="animate-spin text-7xl"> ⏳</p>
         ) : (
@@ -62,7 +62,7 @@ const Signin = () => {
                 id="username"
                 placeholder="username"
                 name="username"
-                className="rounded-sm border border-gray-300 p-2 text-black"
+                className="rounded-sm border border-gray-300 p-2 text-black outline-none"
                 required
               />
 
@@ -71,7 +71,7 @@ const Signin = () => {
                 id="password"
                 name="password"
                 placeholder="password"
-                className="rounded-sm border border-gray-300 p-2 text-black"
+                className="rounded-sm border border-gray-300 p-2 text-black outline-none"
                 required
               />
             </div>
@@ -82,7 +82,7 @@ const Signin = () => {
         )}
       </div>
       <div>
-        <p className="mt-5 text-center">
+        <p className="mt-5 text-center text-black dark:text-white">
           Don't have an account?
           <Link
             to="/signup"

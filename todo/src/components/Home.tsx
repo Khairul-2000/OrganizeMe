@@ -36,7 +36,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="h-full">
       <Header data={data} setTodos={setTodos} />
       <section className="mx-auto mt-12 flex flex-col items-center justify-center">
         <TodoHero todos={todos} />
