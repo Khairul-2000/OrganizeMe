@@ -16,7 +16,6 @@ const Signin = () => {
     });
 
     const result = await user.json();
-    console.log("User Signin: ", result);
 
     if (user.ok) {
       setLoading(true);
