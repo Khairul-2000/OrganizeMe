@@ -23,7 +23,7 @@ const Register = () => {
   }
   return (
     <div>
-      <div className="m-auto mt-[25vh] flex max-w-[400px] items-center justify-center rounded-md bg-white py-8">
+      <div className="m-auto mt-[20vh] flex max-w-[400px] items-center justify-center rounded-md bg-black py-8 dark:bg-white">
         {loading ? (
           <p className="animate-spin text-7xl"> ⏳</p>
         ) : (
@@ -81,7 +81,7 @@ const Register = () => {
         )}
       </div>
       <div>
-        <p className="mt-5 text-center">
+        <p className="mt-5 text-center text-black dark:text-white">
           Have an account?
           <Link
             to="/signin"

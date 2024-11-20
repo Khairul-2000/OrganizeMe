@@ -9,7 +9,9 @@ const TodoList = ({ todos, refresh }) => {
           <ItemList todo={todo} key={todo.id} refresh={refresh} />
         ))
       ) : (
-        <h1 className="text-center text-3xl">No task available🚨</h1>
+        <h1 className="text-center text-3xl text-black dark:text-white">
+          No task available🚨
+        </h1>
       )}
     </div>
   );
