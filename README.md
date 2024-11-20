@@ -40,7 +40,6 @@ A simple and secure full-stack to-do app built with **React** (Vite) on the fron
 ### Demonstration
 
 
-
 https://github.com/user-attachments/assets/492bacfe-1492-4f20-b415-9152208e0d65
 
 
