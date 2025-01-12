@@ -14,6 +14,7 @@ const Register = () => {
     });
 
     const result = await user.json();
+    setLoading(true);
     console.log("User Signin: ", result);
 
     if (user.ok) {
@@ -28,9 +29,10 @@ const Register = () => {
           <p className="animate-spin text-7xl"> ⏳</p>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
               e.preventDefault();
-              const formData = new FormData(e.target);
+              const form = e.currentTarget;
+              const formData = new FormData(form);
               const data = {
                 username: formData.get("username"),
                 email: formData.get("email"),
@@ -39,7 +41,7 @@ const Register = () => {
               console.log("FormData: ", data);
 
               register(data);
-              e.target.reset();
+              form.reset();
             }}
           >
             <div className="mb-6 flex items-center gap-2">

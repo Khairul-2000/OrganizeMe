@@ -40,9 +40,10 @@ const Signin = () => {
           <p className="animate-spin text-7xl"> ⏳</p>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
               e.preventDefault();
-              const formData = new FormData(e.target);
+              const form = e.currentTarget;
+              const formData = new FormData(form);
               const data = {
                 username: formData.get("username"),
                 password: formData.get("password"),
@@ -50,7 +51,7 @@ const Signin = () => {
               console.log("FormData: ", data);
 
               signIn(data);
-              e.target.reset();
+              form.reset();
             }}
           >
             <div className="mb-6 flex items-center gap-2">
