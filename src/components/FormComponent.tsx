@@ -25,10 +25,10 @@ const FormComponent = ({ refresh }) => {
   return (
     <form
       className="mt-9 flex max-w-[455px] flex-row items-center justify-center gap-3 self-center"
-      onSubmit={(e) => {
+      onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
-        const formData = new FormData(e.target);
+        const form = e.currentTarget;
+        const formData = new FormData(form);
 
         const todo = {
           title: formData.get("todo"),
@@ -40,7 +40,7 @@ const FormComponent = ({ refresh }) => {
         }
 
         addTodo(todo);
-        e.target.reset();
+        form.reset();
       }}
     >
       <div>
