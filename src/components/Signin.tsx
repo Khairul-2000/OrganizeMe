@@ -19,13 +19,13 @@ const Signin = () => {
     );
 
     const result = await user.json();
+    setLoading(true);
 
     if (user.ok) {
-      setLoading(true);
       setNewUser(result);
       setTimeout(() => {
         navigate("/");
-      }, 1000);
+      }, 500);
     } else {
       alert("Invalid username or password");
 
