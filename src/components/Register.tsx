@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function register(data) {
@@ -14,10 +12,6 @@ const Register = () => {
         "Content-Type": "application/json",
       },
     });
-
-    const result = await user.json();
-    setLoading(true);
-    console.log("User Signin: ", result);
 
     if (user.ok) {
       alert("User created successfully");
