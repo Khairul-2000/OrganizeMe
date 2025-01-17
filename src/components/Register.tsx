@@ -92,6 +92,7 @@ const Register = () => {
             to="/signin"
             className="cursor-pointer font-semibold text-blue-400"
           >
+            {" "}
             Sign In
           </Link>
         </p>
