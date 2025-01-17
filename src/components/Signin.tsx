@@ -19,13 +19,9 @@ const Signin = () => {
     );
 
     const result = await user.json();
-    setLoading(true);
 
     if (user.ok) {
       setNewUser(result);
-      setTimeout(() => {
-        navigate("/");
-      }, 500);
     } else {
       alert("Invalid username or password");
 
@@ -49,8 +45,11 @@ const Signin = () => {
                 password: formData.get("password"),
               };
               console.log("FormData: ", data);
-
+              setLoading(true);
               signIn(data);
+              setTimeout(() => {
+                navigate("/");
+              }, 1000);
               form.reset();
             }}
           >
