@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../userContext";
+import { RxCross1 } from "react-icons/rx";
 
 const Signin = () => {
   const [loading, setLoading] = useState(false);
@@ -53,9 +54,18 @@ const Signin = () => {
               form.reset();
             }}
           >
-            <div className="mb-6 flex items-center gap-2">
-              <img src="todo.png" alt="todo" className="w-8" />
-              <h1 className="text-2xl font-extrabold text-green-600">TODO</h1>
+            <div className="mb-6 flex flex-row items-center justify-between">
+              <div className="flex items-center gap-2">
+                <img src="todo.png" alt="todo" className="w-8" />
+                <h1 className="text-2xl font-extrabold text-green-600">TODO</h1>
+              </div>
+
+              <RxCross1
+                size={25}
+                color="black"
+                onClick={() => navigate("/")}
+                className="cursor-pointer"
+              />
             </div>
             <h3 className="font-bold text-green-600">Log in to your account</h3>
             <div className="mt-5 flex flex-col gap-5">

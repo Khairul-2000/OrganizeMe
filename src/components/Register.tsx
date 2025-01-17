@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
   async function register(data) {
     const user = await fetch("https://todoserver-w74l.onrender.com/user", {
       method: "POST",
@@ -44,9 +46,18 @@ const Register = () => {
               form.reset();
             }}
           >
-            <div className="mb-6 flex items-center gap-2">
-              <img src="todo.png" alt="todo" className="w-8" />
-              <h1 className="text-2xl font-extrabold text-green-600">TODO</h1>
+            <div className="mb-6 flex flex-row items-center justify-between">
+              <div className="flex items-center gap-2">
+                <img src="todo.png" alt="todo" className="w-8" />
+                <h1 className="text-2xl font-extrabold text-green-600">TODO</h1>
+              </div>
+
+              <RxCross1
+                size={25}
+                color="black"
+                onClick={() => navigate("/")}
+                className="cursor-pointer"
+              />
             </div>
             <h1 className="font-bold text-green-600">Create your account</h1>
             <div className="mt-5 flex flex-col gap-5">
@@ -89,7 +100,6 @@ const Register = () => {
             to="/signin"
             className="cursor-pointer font-semibold text-blue-400"
           >
-            {" "}
             Sign In
           </Link>
         </p>
