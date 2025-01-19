@@ -17,8 +17,7 @@ const Header = ({ data, setTodos }) => {
       {data ? (
         <motion.div
           className={`relative cursor-pointer`}
-          onHoverStart={() => setShowOut(true)}
-          onHoverEnd={() => setShowOut(false)}
+          onClick={() => setShowOut(!showOut)}
         >
           <div
             className={`w-[max-content] font-mono text-3xl font-bold text-green-400 before:absolute before:inset-0 before:animate-typewriter before:bg-[#0d0d0d]`}
@@ -40,8 +39,7 @@ const Header = ({ data, setTodos }) => {
       ) : (
         <motion.div
           className={`relative cursor-pointer`}
-          onHoverStart={() => setShowIn(true)}
-          onHoverEnd={() => setShowIn(false)}
+          onClick={() => setShowIn(!showIn)}
         >
           <button>
             <img src="profile.png" alt="" width={30} />

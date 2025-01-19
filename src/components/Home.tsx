@@ -44,6 +44,7 @@ const Home = () => {
       <section className="mx-auto mt-12 flex flex-col items-center justify-center">
         <TodoHero todos={todos} />
         <FormComponent refresh={refreshTodos} />
+
         <TodoList todos={todos} refresh={refreshTodos} />
       </section>
     </div>
