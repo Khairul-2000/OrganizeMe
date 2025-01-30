@@ -1,6 +1,6 @@
 import { RiNotionFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
-import home from "../images/home.png";
+import home from "../images/preview.png";
 
 const Intro = () => {
   const navigate = useNavigate();
