@@ -1,7 +1,11 @@
-import { RxCross1 } from "react-icons/rx";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { RiNotionFill } from "react-icons/ri";
+import { FiEye } from "react-icons/fi";
+import { FiEyeOff } from "react-icons/fi";
 
 const Register = () => {
+  const [showpassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   async function register(data) {
@@ -20,9 +24,15 @@ const Register = () => {
       alert("User already exists");
     }
   }
+  // bg-[#fffefc]
   return (
-    <div>
-      <div className="m-auto mt-[25vh] flex max-w-[400px] items-center justify-center rounded-md bg-white py-8">
+    <div className="relative flex h-screen w-full flex-col items-center justify-center bg-[#fffefc]">
+      <RiNotionFill
+        size={40}
+        className="absolute left-4 top-4 cursor-pointer"
+        onClick={() => navigate("/")}
+      />
+      <div className="max-w-[400px] rounded-md p-8 py-8">
         <form
           onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
@@ -40,62 +50,82 @@ const Register = () => {
           }}
         >
           <div className="mb-6 flex flex-row items-center justify-between">
-            <div className="flex items-center gap-2">
-              <img src="todo.png" alt="todo" className="w-8" />
-              <h1 className="text-2xl font-extrabold text-green-600">TODO</h1>
+            <div className="flex flex-col items-start justify-center gap-2">
+              <h1 className="text-3xl">Think it. Make it. </h1>
+              <p className="text-2xl text-[#acabac]">
+                Create your Notion account
+              </p>
             </div>
-
-            <RxCross1
-              size={25}
-              color="black"
-              onClick={() => navigate("/")}
-              className="cursor-pointer"
-            />
           </div>
-          <h1 className="font-bold text-green-600">Create your account</h1>
-          <div className="mt-5 flex flex-col gap-5">
+
+          <div className="mt-5 flex flex-col gap-2">
+            <label htmlFor="username" className="text-[#acabac]">
+              Username
+            </label>
             <input
               type="text"
               id="username"
-              placeholder="username"
+              placeholder="Enter your username"
               name="username"
-              className="rounded-sm border border-gray-300 p-2 text-black"
+              className="rounded-md border border-[#e7e6e4] bg-[#fffefc] p-2 text-black"
               required
             />
+            <label htmlFor="email" className="text-[#acabac]">
+              Email
+            </label>
             <input
               type="email"
               id="email"
-              placeholder="enter your email address"
+              placeholder="Enter your email address"
               name="email"
-              className="rounded-sm border border-gray-300 p-2 text-black"
+              className="rounded-md border border-[#e7e6e4] bg-[#fffefc] p-2 text-black"
               required
             />
-
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="password"
-              className="rounded-sm border border-gray-300 p-2 text-black"
-              required
-            />
+            <label htmlFor="password" className="text-[#acabac]">
+              Password
+            </label>
+            <div className="relative">
+              <input
+                type={showpassword ? "text" : "password"}
+                id="password"
+                name="password"
+                placeholder="Password"
+                className="w-full rounded-md border border-[#e7e6e4] bg-[#fffefc] p-2 text-black"
+                required
+              />
+              {!showpassword ? (
+                <FiEye
+                  size={25}
+                  color="gray"
+                  className="absolute right-3 top-2"
+                  onClick={() => setShowPassword(!showpassword)}
+                />
+              ) : (
+                <FiEyeOff
+                  size={25}
+                  color="gray"
+                  className="absolute right-3 top-2"
+                  onClick={() => setShowPassword(!showpassword)}
+                />
+              )}
+            </div>
           </div>
-          <button className="my-[15px] w-full rounded-md bg-blue-400 p-3">
-            Register
+          <button className="my-[15px] w-full rounded-md bg-blue-400 p-3 font-semibold text-white">
+            Continue
           </button>
         </form>
-      </div>
-      <div>
-        <p className="mt-5 text-center">
-          Have an account?
-          <Link
-            to="/signin"
-            className="cursor-pointer font-semibold text-blue-400"
-          >
-            {" "}
-            Sign In
-          </Link>
-        </p>
+        <div>
+          <p className="mt-5 text-center">
+            Have an account?
+            <Link
+              to="/signin"
+              className="cursor-pointer font-semibold text-blue-400"
+            >
+              {" "}
+              Sign In
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

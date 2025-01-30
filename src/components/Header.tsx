@@ -4,9 +4,8 @@ import UserContext from "../userContext";
 import { motion } from "framer-motion";
 
 const Header = ({ data, setTodos }) => {
-  const [showIn, setShowIn] = useState(false); // Change this line
   const [showOut, setShowOut] = useState(false); // Change this line
-  const [, setData] = useContext(UserContext);
+  const { newuser, setNewUser } = useContext(UserContext);
 
   return (
     <div className="flex justify-between">
@@ -22,12 +21,12 @@ const Header = ({ data, setTodos }) => {
           <div
             className={`w-[max-content] font-mono text-3xl font-bold text-green-400 before:absolute before:inset-0 before:animate-typewriter before:bg-[#0d0d0d]`}
           >
-            {data.user.username} 👦
+            {data.user.username}
           </div>
           {showOut && (
             <div
               onClick={() => {
-                setData(null);
+                setNewUser(null);
                 setTodos([]);
               }}
               className={`absolute left-1 top-9 flex h-[100px] w-[200px] flex-col items-center justify-center rounded-md bg-gradient-to-tr from-cyan-200 to-cyan-600 p-6 text-center text-2xl text-white`}
@@ -37,21 +36,19 @@ const Header = ({ data, setTodos }) => {
           )}
         </motion.div>
       ) : (
-        <motion.div
-          className={`relative cursor-pointer`}
-          onClick={() => setShowIn(!showIn)}
-        >
-          <button>
-            <img src="profile.png" alt="" width={30} />
-          </button>
-          {showIn && (
-            <div
-              className={`absolute -left-12 top-9 flex h-[100px] w-[200px] cursor-pointer flex-col items-baseline justify-center gap-3 rounded-md bg-black p-3 text-xl text-white`}
-            >
-              <Link to="/signin">Sign In</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-          )}
+        <motion.div>
+          <div className="flex flex-row items-center justify-center gap-4">
+            <Link to="/newregister">
+              <button className="rounded-md bg-green-400 p-2 text-white">
+                Get Started
+              </button>
+            </Link>
+            <Link to="/signin">
+              <button className="rounded-md bg-green-400 p-2 text-white">
+                Sign In
+              </button>
+            </Link>
+          </div>
         </motion.div>
       )}
     </div>

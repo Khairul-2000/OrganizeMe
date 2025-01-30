@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const FormComponent = ({ refresh }) => {
   const navigate = useNavigate();
-  const [data] = useContext(UserContext);
+  const { newuser } = useContext(UserContext);
   async function addTodo(todo) {
     const result = await fetch(
       "https://todoserver-w74l.onrender.com/api/todo",
@@ -13,7 +13,7 @@ const FormComponent = ({ refresh }) => {
         body: JSON.stringify(todo),
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${data.token}`,
+          Authorization: `Bearer ${newuser.token}`,
         },
       },
     );
@@ -24,7 +24,7 @@ const FormComponent = ({ refresh }) => {
   }
   return (
     <form
-      className="mt-9 flex max-w-[455px] flex-row items-center justify-center gap-3 self-center"
+      className="mt-9 flex max-w-[455px] flex-col items-center justify-center gap-3 self-center"
       onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const form = e.currentTarget;
@@ -34,7 +34,9 @@ const FormComponent = ({ refresh }) => {
           title: formData.get("todo"),
           description: formData.get("description"),
         };
-        if (data === null) {
+
+        console.log(todo);
+        if (newuser === null) {
           navigate("/signin");
           return;
         }
@@ -49,7 +51,7 @@ const FormComponent = ({ refresh }) => {
             type="text"
             id="todo"
             name="todo"
-            className="input mb-[8px]"
+            className="input mb-[8px] w-full"
             placeholder="Write your next task"
             required
           />
@@ -58,15 +60,15 @@ const FormComponent = ({ refresh }) => {
           <textarea
             id="description"
             name="description"
-            className="textarea"
+            className="textarea w-full"
             placeholder="Description"
             rows={10}
             required
           />
         </label>
       </div>
-      <button className="flex cursor-pointer flex-row items-center justify-center gap-2 font-bold">
-        <img src="plus.png" alt="" width={50} />
+      <button className="w-full cursor-pointer rounded-2xl bg-cyan-100 p-2 text-black">
+        Add
       </button>
     </form>
   );

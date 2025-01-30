@@ -1,25 +1,24 @@
 import "./App.css";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
+import { Routes, Route } from "react-router-dom";
 import Signin from "./components/Signin";
-import UserContext from "./userContext";
-import { useState } from "react";
+import Home from "./Home/Home";
+import Intro from "./Intro/Intro";
 import Register from "./components/Register";
+import Contact from "./components/Contact";
+import NotFound from "./components/NotFound";
 
 function App() {
-  const user = useState(null);
   return (
-    <div>
-      <BrowserRouter>
-        <UserContext.Provider value={user}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/signup" element={<Register />} />
-          </Routes>
-        </UserContext.Provider>
-      </BrowserRouter>
+    <div className="relative flex min-h-screen w-full flex-row">
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route path="/home/:id" element={<Home />} />
+        <Route path="/contact-sales" element={<Contact />} />
+
+        <Route path="/signin" element={<Signin />} />
+        <Route path="/newregister" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }
