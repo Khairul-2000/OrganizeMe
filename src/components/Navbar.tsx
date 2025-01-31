@@ -9,13 +9,14 @@ import { RiVoiceprintLine } from "react-icons/ri";
 import LoginPopUp from "./LoginPopUp";
 import { IoIosLink } from "react-icons/io";
 import { RiNotionFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
-import UserContext from "../userContext";
 
-const Navbar = () => {
+import UserContext from "../userContext";
+import SearchPopUp from "./SearchPopUp";
+
+const Navbar = ({ setPath }) => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const [showSearchPopUp, setSearchShowPopUp] = useState(false);
   const { newuser, todos } = useContext(UserContext);
-  const navigate = useNavigate();
 
   //   bg-[#f8f8f7]
 
@@ -43,18 +44,24 @@ const Navbar = () => {
           <LoginPopUp setShowPopUp={setShowPopUp} />
         </div>
       )}
+      {showSearchPopUp && (
+        <SearchPopUp setSearchShowPopUp={setSearchShowPopUp} />
+      )}
       <div className="space-y-3 p-2">
-        <div className="flex cursor-pointer flex-row items-center justify-start gap-2">
+        <div
+          className="flex cursor-pointer flex-row items-center justify-start gap-2"
+          onClick={() => setSearchShowPopUp(!showSearchPopUp)}
+        >
           <CiSearch />
           <span>Search</span>
         </div>
         <div className="flex cursor-pointer flex-row items-center justify-start gap-2">
           <RiVoiceprintLine />
-          <span>Talk AI</span>
+          <span onClick={() => setPath("ai")}>Talk AI</span>
         </div>
         <div
           className="flex cursor-pointer flex-row items-center justify-start gap-2"
-          onClick={() => navigate(`/home/${newuser.user.id}`)}
+          onClick={() => setPath("home")}
         >
           <GrHomeRounded />
           <span>Home</span>

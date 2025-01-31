@@ -1,9 +1,11 @@
 import { RiNotionFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import home from "../images/preview.png";
+import Footer from "../components/Footer";
 
 const Intro = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       <nav className="flex w-screen flex-row items-center justify-between p-4">
@@ -34,7 +36,7 @@ const Intro = () => {
           <div className="flex flex-col gap-4">
             <h1 className="w-[600px] text-7xl">The happier workspace</h1>
             <p className="w-[600px] text-3xl">
-              Write. Plan. Collaborate. With a little help from AI.
+              Write. Plan. With a little help from AI.
             </p>
             <div className="flex flex-row items-center gap-3">
               <button
@@ -69,6 +71,9 @@ const Intro = () => {
           />
         </div>
       </div>
+
+      <hr className="my-4 w-full" />
+      <Footer />
     </div>
   );
 };

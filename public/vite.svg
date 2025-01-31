@@ -3,7 +3,7 @@
 
   
   <!-- Clipboard -->
-  <rect x="50" y="30" width="200" height="240" rx="10" fill="#ffffff" stroke="#42a5f5" stroke-width="3" />
+  <rect x="50" y="30" width="200" height="240" rx="10" fill="#FEA82F" stroke="#42a5f5" stroke-width="3" />
   <rect x="75" y="20" width="50" height="20" rx="5" fill="#42a5f5" />
 
   <!-- Checkboxes -->
@@ -12,9 +12,9 @@
   <rect x="60" y="110" width="10" height="10" rx="2" fill="#ffcc80" stroke="#ffa726" stroke-width="1" />
 
   <!-- Text lines -->
-  <rect x="80" y="50" width="60" height="8" rx="2" fill="#64b5f6" />
-  <rect x="80" y="80" width="60" height="8" rx="2" fill="#64b5f6" />
-  <rect x="80" y="110" width="60" height="8" rx="2" fill="#64b5f6" />
+  <rect x="80" y="50" width="60" height="8" rx="2" fill="#5448C8" />
+  <rect x="80" y="80" width="60" height="8" rx="2" fill="#5448C8" />
+  <rect x="80" y="110" width="60" height="8" rx="2" fill="#5448C8" />
 
   <!-- Pen -->
   <rect x="135" y="150" width="4" height="30" fill="#ff5252" />

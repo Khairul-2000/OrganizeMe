@@ -52,9 +52,7 @@ const Register = () => {
           <div className="mb-6 flex flex-row items-center justify-between">
             <div className="flex flex-col items-start justify-center gap-2">
               <h1 className="text-3xl">Think it. Make it. </h1>
-              <p className="text-2xl text-[#acabac]">
-                Create your Notion account
-              </p>
+              <p className="text-2xl text-[#acabac]">Create your app account</p>
             </div>
           </div>
 
