@@ -6,6 +6,7 @@ import { FiEyeOff } from "react-icons/fi";
 
 const Register = () => {
   const [showpassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function register(data) {
@@ -44,7 +45,7 @@ const Register = () => {
               password: formData.get("password"),
             };
             console.log("FormData: ", data);
-
+            setLoading(true);
             register(data);
             form.reset();
           }}
@@ -109,7 +110,7 @@ const Register = () => {
             </div>
           </div>
           <button className="my-[15px] w-full rounded-md bg-blue-400 p-3 font-semibold text-white">
-            Continue
+            {loading ? "Continue..." : "Continue"}
           </button>
         </form>
         <div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SlArrowDown } from "react-icons/sl";
 import { FaRegEdit } from "react-icons/fa";
 import about from "../images/avatar.jpg";
@@ -9,7 +9,6 @@ import { RiVoiceprintLine } from "react-icons/ri";
 import LoginPopUp from "./LoginPopUp";
 import { IoIosLink } from "react-icons/io";
 import { RiNotionFill } from "react-icons/ri";
-
 import UserContext from "../userContext";
 import SearchPopUp from "./SearchPopUp";
 
@@ -18,7 +17,20 @@ const Navbar = ({ setPath }) => {
   const [showSearchPopUp, setSearchShowPopUp] = useState(false);
   const { newuser, todos } = useContext(UserContext);
 
-  //   bg-[#f8f8f7]
+  const popUpRef = useRef(null);
+
+  const handleClickOutside = (event) => {
+    if (popUpRef.current && !popUpRef.current.contains(event.target)) {
+      setShowPopUp(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="w-[250px] bg-[#f8f8f7] px-3 text-gray-700">
@@ -40,7 +52,7 @@ const Navbar = ({ setPath }) => {
         <FaRegEdit />
       </div>
       {showPopUp && (
-        <div className="absolute left-3 top-[80px]">
+        <div ref={popUpRef} className="absolute left-3 top-[80px]">
           <LoginPopUp setShowPopUp={setShowPopUp} />
         </div>
       )}
