@@ -1,11 +1,13 @@
 import ItemList from "./ItemList";
 
 const TodoList = ({ todos, refresh }) => {
-  console.log("Todos check data: ", todos);
+  console.log("Todos check data: ", todos.length > 1);
 
   return (
     <div className="mt-8">
-      <div className="grid grid-cols-2 gap-3">
+      <div
+        className={`grid ${todos.length > 1 ? "grid-cols-2" : "grid-cols-1"} gap-3`}
+      >
         {todos.length > 0 &&
           todos.map((todo) => (
             <ItemList todo={todo} key={todo.id} refresh={refresh} />
