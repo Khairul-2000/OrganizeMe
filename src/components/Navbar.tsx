@@ -8,7 +8,6 @@ import { GoInbox } from "react-icons/go";
 import { RiVoiceprintLine } from "react-icons/ri";
 import LoginPopUp from "./LoginPopUp";
 import { IoIosLink } from "react-icons/io";
-import { RiNotionFill } from "react-icons/ri";
 import UserContext from "../userContext";
 import SearchPopUp from "./SearchPopUp";
 
